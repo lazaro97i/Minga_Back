@@ -1,9 +1,10 @@
 import express from 'express';
+import controller from '../controllers/users_controller.js';
+const {read} = controller
 let router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/', read);
 
 export default router;
+

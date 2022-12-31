@@ -3,11 +3,10 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-
 import indexRouter from './routes/index.js';
-import usersRouter from './routes/users.js';
-
 import { __dirname } from './utils.js';
+import "dotenv/config.js";
+import "./config/database.js";
 
 let app = express();
 
@@ -21,8 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//routes
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
