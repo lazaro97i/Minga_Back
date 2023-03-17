@@ -1,11 +1,12 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose'
 
-const categorySchema = new mongoose.Schema({
-    name: {type: String, required: true},
-    ranking: {type: Number},
-    examples: [{type: String}],
-    detail: {type: String, required: true},
-    user_id: {type: mongoose.Types.ObjectId, ref: "users" , required: true}
-}, {timestamps: true})
+const schema = new mongoose.Schema(
+    {
+        name: { type: String, required: true },
+        detail: { type: String, required: true }
+    },{
+        timestamps: true
+    }
+)
 
-export const Category = mongoose.model("categories", categorySchema)
+export const Category = mongoose.model('categories', schema)
