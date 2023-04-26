@@ -27,7 +27,9 @@ const schema = Joi.object({
         'string.max':'Country name too long',
         'string.base':'Country: Must be a text',
     }),
-    date: Joi.date(),
+    date: Joi.date().messages({
+        'date.base':'Date: Must be a valid date',
+    }),
     photo: Joi.string().uri().required().min(3).messages({
         'any.required':'Profile photo: Required field',
         'string.empty':'Profile photo: Required field',
