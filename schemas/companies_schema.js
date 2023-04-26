@@ -28,7 +28,8 @@ const schema = Joi.object({
         'string.min':'Description too short',
         'string.max':'Description too long',
         'string.base':'Description: Must be a text',
-    })
+    }),
+    user_id: Joi.objectId().required()
 })
 
 export default schema

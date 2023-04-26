@@ -2,7 +2,8 @@ import express from 'express';
 import users from "./users_route.js";
 import categories from "./categories_route.js";
 import authors from './authors_route.js';
-import companies from './companies_route.js'
+import companies from './companies_route.js';
+import mangas from './mangas_route.js';
 
 let router = express.Router();
 
@@ -15,5 +16,6 @@ router.use("/categories", categories)
 router.use("/users", users)
 router.use("/authors", authors)
 router.use("/companies", companies)
+router.use("/mangas", mangas)
 
 export default router;
