@@ -26,7 +26,7 @@ const controller = {
             }else{
                 res.status(404).json({
                     success: false,
-                    response: "not found"
+                    response: "Categories not found"
                 })
             }
         }catch(error){ // se catchea cualquier error
@@ -36,16 +36,16 @@ const controller = {
     one: async(req, res) => {
         try{
             const {category_id} = req.params
-            let one = await Category.findById(category_id).populate("user_id")
-            if(one){
+            let category = await Category.findById(category_id).populate("user_id")
+            if(category){
                 res.status(200).json({
                     success: true,
-                    response: one
+                    response: category
                 })
             }else{
                 res.status(404).json({
                     success: false,
-                    response: "not found"
+                    response: "Category not found"
                 })
             }
         }catch(error){
@@ -62,7 +62,7 @@ const controller = {
             )
             res.status(200).json({
                 success: true,
-                response: "updated",
+                response: "Category updated",
                 updated_category: category
             })
         }catch(error){
@@ -75,7 +75,7 @@ const controller = {
             let category = await Category.findByIdAndDelete(id)
             res.status(200).json({
                 success: true,
-                response: "deleted"
+                response: "Category deleted"
             })
         }catch(error){
             console.log(error)

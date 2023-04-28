@@ -2,9 +2,9 @@ import { Company } from '../models/Company.js'
 
 const controller =  {
     create: async(req, res) => {
-        const {name, logo, website, description, user_id='6414c441f8845dbab347bde9'} = req.body
         try{
-            const company = await Company.create({name, logo, website, description, user_id})
+            const {name, logo, website, description, user_id} = req.body
+            let company = await Company.create({name, logo, website, description, user_id})
             res.status(201).json({
                 success: true,
                 response: 'done',
