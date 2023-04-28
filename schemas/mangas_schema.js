@@ -24,7 +24,9 @@ const schema = Joi.object({
         'string.max':'Description too long',
         'string.base':'Description: Must be a text',
     }),
-    category_id: Joi.objectId().required()
+    category_id: Joi.objectId().required().messages({
+        'invalid': 'Category: Required field'
+    })
 })
 
 export default schema
